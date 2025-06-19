@@ -1,42 +1,303 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* src/App.css */
+
+/* Basic Body Styles for general font/background */
+body {
+  font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+  background-color: #f8f9fa; /* Light grey background */
+  /* Add a subtle gradient background for a more creative touch */
+  background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  margin: 0; /* Remove default body margin */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Custom styling for the hero section button */
+/* Applies to any button with class .btn-primary within a .p-5 container */
+.p-5.btn-primary {
+  background-color: #007bff; /* Bootstrap primary blue */
+  border-color: #007bff;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow for depth */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.p-5.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  border-color: #0056b3;
+  transform: translateY(-5px) scale(1.02); /* More pronounced lift and slight scale */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Hero Section Enhancements */
+.p-5.mb-4.bg-light.rounded-3.shadow-sm {
+  /* Existing Bootstrap classes provide a good base */
+  position: relative;
+  overflow: hidden; /* Hide overflowing pseudo-elements */
+  background: linear-gradient(45deg, #a8c0ff, #3f2b96); /* Creative gradient background */
+  color: white; /* Ensure text is visible on dark background */
+  padding: 7rem 3rem; /* Increase padding for a more grand feel */
+  border-radius: 1rem; /* Slightly more rounded corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for prominence */
 }
 
+.p-5.mb-4.bg-light.rounded-3.shadow-sm::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1); /* Subtle overlay for effect */
+  transform: rotate(30deg);
+  z-index: 1;
+}
+
+.p-5.mb-4.bg-light.rounded-3.shadow-sm .container-fluid {
+  position: relative;
+  z-index: 2; /* Ensure content is above the overlay */
+}
+
+.p-5.mb-4.bg-light.rounded-3.shadow-sm h1 {
+  font-size: 3.5rem; /* Larger, more impactful heading */
+  font-weight: 700; /* Bolder font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for creativity */
+  margin-bottom: 1rem;
+}
+
+.p-5.mb-4.bg-light.rounded-3.shadow-sm p {
+  font-size: 1.25rem; /* Slightly larger paragraph text */
+  max-width: 800px;
+  margin: 0 auto 2rem auto; /* Center and add bottom margin */
+  line-height: 1.6;
+}
+
+/* Card hover effect */
 .card {
-  padding: 2em;
+  border: 1px solid #dee2e6; /* Light border */
+  border-radius: 0.75rem; /* More rounded corners for a softer look */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease; /* Added border-color to transition */
+  background-color: #ffffff; /* White background for cards */
+  position: relative;
+  overflow: hidden; /* For creative overlays */
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-10px) scale(1.03); /* More pronounced lift and slight scale on hover */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  border-color: #007bff; /* Highlight border on hover */
+}
+
+/* Add a subtle overlay effect on card hover */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 123, 255, 0.1); /* Light blue transparent overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; /* Allow interaction with elements beneath */
+}
+
+.card:hover::after {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Ensure images in cards don't get distorted */
+.card-img-top {
+  width: 100%;
+  height: 250px; /* Increased height for better visual impact */
+  object-fit: cover; /* Crop image to fit without distortion */
+  border-top-left-radius: calc(0.75rem - 1px); /* Match card border radius */
+  border-top-right-radius: calc(0.75rem - 1px); /* Match card border radius */
+  filter: brightness(0.95); /* Slightly dim images for better text contrast */
+  transition: filter 0.3s ease; /* Transition for brightness */
+}
+
+.card:hover .card-img-top {
+  filter: brightness(1); /* Restore full brightness on hover */
+}
+
+/* Adjust carousel caption readability */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker semi-transparent black background */
+  border-radius: 0.5rem; /* More rounded corners */
+  padding: 15px 20px; /* Increased padding */
+  backdrop-filter: blur(5px); /* Frosted glass effect for creativity */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Stronger text shadow for readability */
+}
+
+.carousel-caption h5 {
+  font-size: 1.8rem; /* Larger heading in carousel */
+  margin-bottom: 0.5rem;
+}
+
+.carousel-caption p {
+  font-size: 1.1rem; /* Larger paragraph in carousel */
+}
+
+/* Styles for badges (religion, culture, tags) */
+.badge {
+  font-size: 0.85em; /* Slightly larger font size */
+  padding: 0.5em 0.7em; /* Increased padding */
+  border-radius: 0.35rem; /* More rounded corners */
+  display: inline-flex; /* Use flexbox for better alignment with icons if added later */
+  align-items: center;
+  margin-right: 0.5rem; /* Add some margin for spacing */
+  font-weight: 600; /* Bolder text */
+  text-transform: uppercase; /* Uppercase for a modern look */
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Creative Navigation Bar Styles */
+.navbar {
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Vibrant gradient for navbar */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Clear shadow */
+  padding: 1rem 0; /* More vertical padding */
+}
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif; /* A more creative font for brand */
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ffffff !important; /* White text for brand */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important; /* Lighter white for links */
+  font-weight: 500;
+  margin-left: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important; /* Pure white on hover */
+  transform: translateY(-3px); /* Subtle lift */
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%; /* Underline effect on hover */
+}
+
+/* Footer Enhancements */
+.footer {
+  background-color: #343a40; /* Darker footer background */
+  color: rgba(255, 255, 255, 0.7); /* Lighter text color */
+  padding: 2rem 0;
+  border-top: 5px solid #007bff; /* A prominent top border matching primary color */
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer a {
+  color: #007bff; /* Primary blue for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff; /* White on hover */
+}
+
+/* General button styling (apply to other buttons if desired) */
+.btn {
+  border-radius: 0.5rem; /* Consistent rounded corners */
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Input field styling for a more modern look */
+.form-control {
+  border-radius: 0.5rem; /* Rounded input fields */
+  border: 1px solid #ced4da;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Subtle focus glow */
+  outline: none; /* Remove default outline */
+}
+/* Ensure the root element of your React app takes full width */
+#root, body, html {
+    width: 100%;
+    min-width: 320px; /* Prevent content from shrinking too much on very small screens */
+    overflow-x: hidden; /* Prevent horizontal scroll for elements that might unexpectedly overflow */
+}
+
+/* Adjust Bootstrap's default .container behavior if you want it to be full-width sometimes */
+/* NOTE: Use this ONLY if you want to override Bootstrap's fixed container width GLOBALLY.
+   A better practice is to use .container-fluid in your HTML where full width is desired. */
+.container {
+    max-width: 100% !important; /* Force all .container elements to be full width */
+    padding-left: var(--bs-gutter-x, 0.75rem) !important; /* Restore default Bootstrap padding */
+    padding-right: var(--bs-gutter-x, 0.75rem) !important; /* Restore default Bootstrap padding */
+}
+
+/* Ensure any rows within containers also respect full width or specific padding */
+.row {
+    width: 100%; /* Ensure rows themselves occupy full available width */
+    margin-left: 0; /* Remove default negative margins that can cause overflow */
+    margin-right: 0; /* Remove default negative margins that can cause overflow */
+}
+
+/* General responsive image rule if not already covered */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Helps with layout and centering */
+}
+
+/* Ensure elements like your hero section, navbar, and footer correctly utilize full width of their parent */
+/* If these are directly under body or a full-width container, they should expand naturally. */
+/* If they are inside a Bootstrap .container and you want them to break out, you need to adjust HTML structure
+   or use the .container override above. */
+.p-5.mb-4.bg-light.rounded-3.shadow-sm, /* Your Hero Section */
+.navbar,
+.footer {
+    width: 100%; /* Explicitly set to 100% for certainty */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* For specific content that might overflow (e.g., code blocks, long text without breaks) */
+pre, code, .overflow-content {
+    white-space: pre-wrap; /* Allows text to wrap */
+    word-wrap: break-word; /* Forces long words to break */
+    overflow-x: auto; /* Adds horizontal scroll if content still overflows */
 }
