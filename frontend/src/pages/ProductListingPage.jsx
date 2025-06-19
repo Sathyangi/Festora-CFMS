@@ -1,39 +1,17 @@
 // src/pages/ProductListingPage.jsx
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
-//import local images
-import vesakLanternImage from '../assets/images/lanterns.jpg';
-import clayPahanaImage from '../assets/images/pahana.jpg';
-import pottuImage from '../assets/images/kukum.png';
-import spicesImage from '../assets/images/spices.jpg';
-import elephantImage from '../assets/images/woodenElephant.png';
-import batikImage from '../assets/images/bathik.jpg';
-import murukkuImage from '../assets/images/murukku.jpg';
-import christmasTreeImage from '../assets/images/decoratedTree.jpg';
-import prayerMatImage from '../assets/images/prayerMat.jpg';
-import avuruduSweetsImage from '../assets/images/sweet.png';
-import berayaImage from '../assets/images/Tdrum.png';
+import React, { useState, useMemo } from 'react';// Imports React, useState 
+import { Link } from 'react-router-dom';// Imports Link component for navigation. 
+import { useCart } from '../context/CartContext'; // Import useCart hook
 
 function ProductListingPage() {
-    // This product data should be consistent with what's in your ProductDetailPage
-    const allProducts = [
-                { id: '201', name: 'Vesak Lantern Kit', category: 'Decorations', price: 1200, imageUrl: vesakLanternImage, tags: ['Vesak', 'Buddhist', 'Handicraft'], culturalContext: 'Vesak Poya', description: 'A DIY kit to create beautiful traditional Sri Lankan Vesak lanterns, perfect for home decorations during the festival.' },
-                { id: '202', name: 'Clay Oil Lamp (Pahana)', category: 'Ceremonial Items', price: 250, imageUrl: clayPahanaImage, tags: ['Vesak', 'Poson', 'Buddhist', 'Traditional'], culturalContext: 'Vesak Poya', description: 'Hand-crafted clay oil lamps (pahana) used during religious ceremonies and festivals, symbolizing light and wisdom.' },
-                { id: '203', name: 'Pottu (Bindi) & Kumkum Pack', category: 'Adornments', price: 500, imageUrl: pottuImage, tags: ['Hindu', 'Traditional', 'Festival'], culturalContext: 'Thai Pongal / Deepavali', description: 'Authentic Indian bindi and kumkum powder, essential adornments for Hindu women, especially during festive occasions.' },
-                { id: '204', name: 'Spice Box Set', category: 'Food', price: 4000, imageUrl: spicesImage, tags: ['Culinary', 'Gift', 'General Cultural'], culturalContext: 'General Sri Lankan Culture', description: 'A curated set of premium Sri Lankan spices, including cinnamon, cardamom, and turmeric, perfect for culinary enthusiasts.' },
-                { id: '205', name: 'Wooden Elephant Carving', category: 'Carvings', price: 8000, imageUrl: elephantImage, tags: ['Cultural', 'Souvenir', 'Handicraft'], culturalContext: 'General Sri Lankan Culture', description: 'An intricately carved wooden elephant figurine, a classic Sri Lankan souvenir representing strength and prosperity.' },
-                { id: '206', name: 'Batik Saree', category: 'Textiles', price: 15000, imageUrl: batikImage, tags: ['Fashion', 'Traditional', 'Gift'], culturalContext: 'General Sri Lankan Culture', description: 'A vibrant, hand-dyed batik saree, showcasing the traditional art of wax-resist dyeing, elegant for any occasion.' },
-                { id: '207', name: 'Murukku (Savory Snack)', category: 'Food', price: 750, imageUrl: murukkuImage, tags: ['Hindu', 'Festival Food', 'Snack'], culturalContext: 'Thai Pongal / Deepavali', description: 'Crispy and savory Murukku, a popular spiral-shaped snack commonly enjoyed during Hindu festivals and celebrations.' },
-                { id: '208', name: 'Decorative Christmas Tree', category: 'Decorations', price: 10000, imageUrl: christmasTreeImage, tags: ['Christmas', 'Christian', 'Seasonal'], culturalContext: 'Christmas', description: 'A festive pre-lit artificial Christmas tree, ideal for decorating your home during the holiday season.' },
-                { id: '209', name: 'Prayer Mat (Janamaz)', category: 'Religious Items', price: 4500, imageUrl: prayerMatImage, tags: ['Muslim', 'Religious', 'Eid'], culturalContext: 'Eid al-Fitr / Eid al-Adha', description: 'A soft and portable prayer mat (Janamaz), an essential item for daily prayers for Muslims, often gifted during Eid.' },
-                { id: '210', name: 'Avurudu Sweet Platter Kit', category: 'Food', price: 2500, imageUrl: avuruduSweetsImage, tags: ['Sinhala New Year', 'Tamil New Year', 'Sweet', 'Traditional'], culturalContext: 'Sinhala & Tamil New Year', description: 'A DIY kit with ingredients and instructions to prepare traditional Sinhala and Tamil New Year sweets like Konda Kavum and Kokis.' },
-                { id: '211', name: 'Traditional Drum (Beraya)', category: 'Musical Instruments', price: 25000, imageUrl: berayaImage, tags: ['Traditional', 'Musical Instrument', 'Cultural'], culturalContext: 'General Sri Lankan Culture', description: 'An authentic traditional Sri Lankan drum (Beraya), handcrafted by local artisans, used in various cultural performances.' },
-    ];
+    // Get allProducts and addToCart from context
+    const { allProducts, addToCart } = useCart();
 
-    const [sortOrder, setSortOrder] = useState(''); // 'price-asc', 'price-desc', 'name-asc', 'name-desc'
-    const [filterCategory, setFilterCategory] = useState('');
-    const [filterCulturalContext, setFilterCulturalContext] = useState('');
-    const [searchQuery, setSearchQuery] = useState('');
+   // State variables for managing user selections in filters and sorting. 
+    const [sortOrder, setSortOrder] = useState(''); // Stores the current sort order 
+    const [filterCategory, setFilterCategory] = useState('');// Stores the selected product category for filtering. 
+    const [filterCulturalContext, setFilterCulturalContext] = useState('');// Stores the selected cultural context for filtering. 
+    const [searchQuery, setSearchQuery] = useState('');// Stores the text entered in the search bar. 
 
     // Extract unique categories and cultural contexts for filter options
     const uniqueCategories = useMemo(() => {
@@ -109,6 +87,14 @@ function ProductListingPage() {
         'Other Cultural Products',
     ];
 
+    // Handler for adding a product to the cart from the listing page
+    const handleAddToCart = (productId) => {
+        addToCart(productId, 1); // Add 1 quantity of the specified product
+        // Optionally, show a success message to the user
+        // alert(`Product added to cart!`); 
+        console.log(`Product ${productId} added to cart!`);
+    };
+
     return (
         <div className="container my-5">
             <h1 className="text-center mb-4">Festival & Cultural Products</h1>
@@ -164,47 +150,47 @@ function ProductListingPage() {
                 </div>
             </div>
 
-            {/* Display Products by Cultural Context */}
-            {Object.keys(groupedProducts).length > 0 ? (
-                // Map over the preferred order to display categories
-                culturalContextOrder.map(context => (
-                    groupedProducts[context] && groupedProducts[context].length > 0 && ( // Only render if category has products
-                        <div key={context} className="mb-5">
-                            <h2 className="text-center mb-4 text-primary">{context} Products</h2>
-                            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                                {groupedProducts[context].map(product => (
-                                    <div key={product.id} className="col">
-                                        <div className="card h-100 shadow-sm">
-                                            <img src={product.imageUrl} className="card-img-top" alt={product.name} />
-                                            <div className="card-body d-flex flex-column">
-                                                <h5 className="card-title">{product.name}</h5>
-                                                <h6 className="card-subtitle mb-2 text-muted">{product.category}</h6>
-                                                <p className="card-text fw-bold">LKR {product.price}</p>
-                                                <div className="mb-3 mt-auto">
-                                                    {product.tags.map(tag => (
-                                                        <span key={tag} className="badge bg-secondary me-1">{tag}</span>
-                                                    ))}
-                                                </div>
-                                                <div className="d-flex justify-content-between align-items-center">
-                                                    <button className="btn btn-primary">Add to Cart</button>
-                                                    <Link to={`/products/${product.id}`} className="btn btn-outline-secondary">Details</Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )
-                ))
-            ) : (
-                <div className="text-center my-5">
-                    <p className="lead">No products found matching your criteria.</p>
-                </div>
-            )}
-        </div>
+    {/* Display Products by Cultural Context */}
+       {Object.keys(groupedProducts).length > 0 ? (
+         // Map over the preferred order to display categories
+         culturalContextOrder.map(context => (
+            groupedProducts[context] && groupedProducts[context].length > 0 && ( // Only render if category has products
+              <div key={context} className="mb-5">
+                <h2 className="text-center mb-4 text-primary">{context} Products</h2>
+                  <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    {groupedProducts[context].map(product => (
+                        <div key={product.id} className="col">
+                          <div className="card h-100 shadow-sm">
+                             <img src={product.imageUrl} className="card-img-top" alt={product.name} />
+                               <div className="card-body d-flex flex-column">
+                                 <h5 className="card-title">{product.name}</h5>
+                                 <h6 className="card-subtitle mb-2 text-muted">{product.category}</h6>
+                                 <p className="card-text fw-bold">LKR {product.price}</p>
+                                    <div className="mb-3 mt-auto">
+                                        {product.tags.map(tag => (
+                                         <span key={tag} className="badge bg-secondary me-1">{tag}</span>
+                                        ))}
+                                     </div>
+                                <div className="d-flex justify-content-between align-items-center">
+                                     <Link to={`/products/${product.id}`} className="btn btn-outline-secondary">Details</Link>
+                                </div>
+                               </div>
+                             </div>
+                          </div>
+                       ))}
+                    </div>
+                 </div>
+                )
+             ))
+          ) : (
+          <div className="text-center my-5">
+             <p className="lead">No products found matching your criteria.</p>
+          </div>
+          )}
+    </div>
     );
 }
 
 export default ProductListingPage;
+// Exports the ProductListingPage component.
    

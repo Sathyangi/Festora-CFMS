@@ -2,40 +2,39 @@
 
 /* Basic Body Styles for general font/background */
 body {
-  font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
-  background-color: #f8f9fa; /* Light grey background */
+  font-family: 'Inter', sans-serif; 
+  background-color: #f8f9fa; 
   /* Add a subtle gradient background for a more creative touch */
-  background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
-  min-height: 100vh; /* Ensure body takes full viewport height */
-  margin: 0; /* Remove default body margin */
+  background: linear-gradient(135deg, #f0f2f5 0%, #a4a3a5 100%);
+  min-height: 100vh;
+  margin: 0; 
 }
 
 /* Custom styling for the hero section button */
-/* Applies to any button with class .btn-primary within a .p-5 container */
+/* Applies this to any button with class */
 .p-5.btn-primary {
-  background-color: #007bff; /* Bootstrap primary blue */
+  background-color: #007bff; 
   border-color: #007bff;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to transition */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow for depth */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .p-5.btn-primary:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
   border-color: #0056b3;
-  transform: translateY(-5px) scale(1.02); /* More pronounced lift and slight scale */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  transform: translateY(-5px) scale(1.02); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
 
 /* Hero Section Enhancements */
 .p-5.mb-4.bg-light.rounded-3.shadow-sm {
-  /* Existing Bootstrap classes provide a good base */
   position: relative;
-  overflow: hidden; /* Hide overflowing pseudo-elements */
-  background: linear-gradient(45deg, #a8c0ff, #3f2b96); /* Creative gradient background */
-  color: white; /* Ensure text is visible on dark background */
-  padding: 7rem 3rem; /* Increase padding for a more grand feel */
-  border-radius: 1rem; /* Slightly more rounded corners */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for prominence */
+  overflow: hidden; 
+  background: linear-gradient(45deg, #a8c0ff, #3f2b96); 
+  color: white; 
+  padding: 7rem 3rem; 
+  border-radius: 1rem; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .p-5.mb-4.bg-light.rounded-3.shadow-sm::before {
@@ -49,40 +48,39 @@ body {
   transform: rotate(30deg);
   z-index: 1;
 }
-
 .p-5.mb-4.bg-light.rounded-3.shadow-sm .container-fluid {
   position: relative;
-  z-index: 2; /* Ensure content is above the overlay */
+  z-index: 2; 
 }
-
+/* Styles for the main heading within the hero section. */
 .p-5.mb-4.bg-light.rounded-3.shadow-sm h1 {
-  font-size: 3.5rem; /* Larger, more impactful heading */
-  font-weight: 700; /* Bolder font */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for creativity */
+  font-size: 3.5rem; 
+  font-weight: 700; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
   margin-bottom: 1rem;
 }
-
+/* Styles for the main heading within the hero section. */
 .p-5.mb-4.bg-light.rounded-3.shadow-sm p {
-  font-size: 1.25rem; /* Slightly larger paragraph text */
+  font-size: 1.25rem; 
   max-width: 800px;
-  margin: 0 auto 2rem auto; /* Center and add bottom margin */
+  margin: 0 auto 2rem auto; 
   line-height: 1.6;
 }
 
 /* Card hover effect */
 .card {
-  border: 1px solid #dee2e6; /* Light border */
-  border-radius: 0.75rem; /* More rounded corners for a softer look */
+  border: 1px solid #dee2e6; 
+  border-radius: 0.75rem; 
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease; /* Added border-color to transition */
-  background-color: #ffffff; /* White background for cards */
+  background-color: #ffffff; 
   position: relative;
-  overflow: hidden; /* For creative overlays */
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.03); /* More pronounced lift and slight scale on hover */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-  border-color: #007bff; /* Highlight border on hover */
+  transform: translateY(-10px) scale(1.03); 
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); 
+  border-color: #007bff; 
 }
 
 /* Add a subtle overlay effect on card hover */
@@ -93,7 +91,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 123, 255, 0.1); /* Light blue transparent overlay */
+  background: rgba(0, 123, 255, 0.1); 
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none; /* Allow interaction with elements beneath */
@@ -103,76 +101,76 @@ body {
   opacity: 1; /* Show overlay on hover */
 }
 
-/* Ensure images in cards don't get distorted */
+
 .card-img-top {
   width: 100%;
-  height: 250px; /* Increased height for better visual impact */
+  height: 250px; 
   object-fit: cover; /* Crop image to fit without distortion */
-  border-top-left-radius: calc(0.75rem - 1px); /* Match card border radius */
-  border-top-right-radius: calc(0.75rem - 1px); /* Match card border radius */
-  filter: brightness(0.95); /* Slightly dim images for better text contrast */
-  transition: filter 0.3s ease; /* Transition for brightness */
+  border-top-left-radius: calc(0.75rem - 1px); 
+  border-top-right-radius: calc(0.75rem - 1px); 
+  filter: brightness(0.95); 
+  transition: filter 0.3s ease; 
 }
 
 .card:hover .card-img-top {
-  filter: brightness(1); /* Restore full brightness on hover */
+  filter: brightness(1); 
 }
 
 /* Adjust carousel caption readability */
 .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker semi-transparent black background */
-  border-radius: 0.5rem; /* More rounded corners */
-  padding: 15px 20px; /* Increased padding */
-  backdrop-filter: blur(5px); /* Frosted glass effect for creativity */
-  -webkit-backdrop-filter: blur(5px); /* Safari support */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Stronger text shadow for readability */
+  background-color: rgba(0, 0, 0, 0.6); 
+  border-radius: 0.5rem; 
+  padding: 15px 20px; 
+  backdrop-filter: blur(5px); 
+  -webkit-backdrop-filter: blur(5px); 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); 
 }
 
 .carousel-caption h5 {
-  font-size: 1.8rem; /* Larger heading in carousel */
+  font-size: 1.8rem; 
   margin-bottom: 0.5rem;
 }
 
 .carousel-caption p {
-  font-size: 1.1rem; /* Larger paragraph in carousel */
+  font-size: 1.1rem; 
 }
 
 /* Styles for badges (religion, culture, tags) */
 .badge {
-  font-size: 0.85em; /* Slightly larger font size */
-  padding: 0.5em 0.7em; /* Increased padding */
-  border-radius: 0.35rem; /* More rounded corners */
-  display: inline-flex; /* Use flexbox for better alignment with icons if added later */
+  font-size: 0.85em; 
+  padding: 0.5em 0.7em; 
+  border-radius: 0.35rem; 
+  display: inline-flex; 
   align-items: center;
-  margin-right: 0.5rem; /* Add some margin for spacing */
-  font-weight: 600; /* Bolder text */
-  text-transform: uppercase; /* Uppercase for a modern look */
+  margin-right: 0.5rem; 
+  font-weight: 600; 
+  text-transform: uppercase; 
   letter-spacing: 0.5px;
   transition: all 0.2s ease;
 }
 
 .badge:hover {
-  transform: translateY(-2px); /* Slight lift on hover */
+  transform: translateY(-2px); 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Creative Navigation Bar Styles */
 .navbar {
   background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Vibrant gradient for navbar */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Clear shadow */
-  padding: 1rem 0; /* More vertical padding */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+  padding: 1rem 0; 
 }
 
 .navbar-brand {
-  font-family: 'Montserrat', sans-serif; /* A more creative font for brand */
+  font-family: 'Montserrat', sans-serif; 
   font-weight: 700;
   font-size: 1.8rem;
-  color: #ffffff !important; /* White text for brand */
+  color: #ffffff !important; 
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.8) !important; /* Lighter white for links */
+  color: rgba(255, 255, 255, 0.8) !important; 
   font-weight: 500;
   margin-left: 1.5rem;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -180,8 +178,8 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-  color: #ffffff !important; /* Pure white on hover */
-  transform: translateY(-3px); /* Subtle lift */
+  color: #ffffff !important; 
+  transform: translateY(-3px); 
 }
 
 .navbar-nav .nav-link::after {
@@ -196,15 +194,15 @@ body {
 }
 
 .navbar-nav .nav-link:hover::after {
-  width: 100%; /* Underline effect on hover */
+  width: 100%; 
 }
 
 /* Footer Enhancements */
 .footer {
-  background-color: #343a40; /* Darker footer background */
-  color: rgba(255, 255, 255, 0.7); /* Lighter text color */
+  background-color: #343a40; 
+  color: rgba(255, 255, 255, 0.7); 
   padding: 2rem 0;
-  border-top: 5px solid #007bff; /* A prominent top border matching primary color */
+  border-top: 5px solid #007bff; 
 }
 
 .footer p {
@@ -212,18 +210,18 @@ body {
 }
 
 .footer a {
-  color: #007bff; /* Primary blue for links */
+  color: #007bff; 
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #fff; /* White on hover */
+  color: #fff; 
 }
 
-/* General button styling (apply to other buttons if desired) */
+/* General button styling */
 .btn {
-  border-radius: 0.5rem; /* Consistent rounded corners */
+  border-radius: 0.5rem; 
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   transition: all 0.3s ease;
@@ -243,7 +241,7 @@ body {
 
 /* Input field styling for a more modern look */
 .form-control {
-  border-radius: 0.5rem; /* Rounded input fields */
+  border-radius: 0.5rem; 
   border: 1px solid #ced4da;
   padding: 0.75rem 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -252,52 +250,37 @@ body {
 .form-control:focus {
   border-color: #80bdff;
   box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Subtle focus glow */
-  outline: none; /* Remove default outline */
+  outline: none; 
 }
 /* Ensure the root element of your React app takes full width */
 #root, body, html {
     width: 100%;
-    min-width: 320px; /* Prevent content from shrinking too much on very small screens */
-    overflow-x: hidden; /* Prevent horizontal scroll for elements that might unexpectedly overflow */
+    min-width: 320px; 
+    overflow-x: hidden; 
 }
 
-/* Adjust Bootstrap's default .container behavior if you want it to be full-width sometimes */
-/* NOTE: Use this ONLY if you want to override Bootstrap's fixed container width GLOBALLY.
-   A better practice is to use .container-fluid in your HTML where full width is desired. */
-.container {
-    max-width: 100% !important; /* Force all .container elements to be full width */
-    padding-left: var(--bs-gutter-x, 0.75rem) !important; /* Restore default Bootstrap padding */
-    padding-right: var(--bs-gutter-x, 0.75rem) !important; /* Restore default Bootstrap padding */
-}
-
-/* Ensure any rows within containers also respect full width or specific padding */
 .row {
-    width: 100%; /* Ensure rows themselves occupy full available width */
-    margin-left: 0; /* Remove default negative margins that can cause overflow */
-    margin-right: 0; /* Remove default negative margins that can cause overflow */
+    width: 100%; 
+    margin-left: 0; 
+    margin-right: 0; 
 }
 
-/* General responsive image rule if not already covered */
+/* General responsive image rule */
 img {
     max-width: 100%;
     height: auto;
-    display: block; /* Helps with layout and centering */
+    display: block; 
 }
 
-/* Ensure elements like your hero section, navbar, and footer correctly utilize full width of their parent */
-/* If these are directly under body or a full-width container, they should expand naturally. */
-/* If they are inside a Bootstrap .container and you want them to break out, you need to adjust HTML structure
-   or use the .container override above. */
-.p-5.mb-4.bg-light.rounded-3.shadow-sm, /* Your Hero Section */
+.p-5.mb-4.bg-light.rounded-3.shadow-sm, /* Hero Section */
 .navbar,
 .footer {
-    width: 100%; /* Explicitly set to 100% for certainty */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
-/* For specific content that might overflow (e.g., code blocks, long text without breaks) */
 pre, code, .overflow-content {
-    white-space: pre-wrap; /* Allows text to wrap */
-    word-wrap: break-word; /* Forces long words to break */
-    overflow-x: auto; /* Adds horizontal scroll if content still overflows */
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    overflow-x: auto; 
 }

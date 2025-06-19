@@ -12,7 +12,6 @@ import { useParams, Link } from 'react-router-dom';
 function FestivalDetailPage() {
     const { id } = useParams(); // Get the ID from the URL parameter
 
-    // --- Temporary Hardcoded Data ---
     // This array should ideally be consistent with the data on listing pages 
     const allFestivals = [
         { id: '101', name: 'Vesak Poya', location: 'Island-wide', date: 'May (Full Moon)', description: 'The most sacred Buddhist festival, commemorating the birth, enlightenment, and passing of Lord Buddha. Celebrations involve illuminating homes and public spaces with lanterns and pandals, observing "sil" (precepts) at temples, meditating, and organizing "dansals" (free food and drink stalls) as acts of generosity.', religion: 'Buddhist', culture: 'Pan-Sri Lankan', imageUrl:vesakImage},
